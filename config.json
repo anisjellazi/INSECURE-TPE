@@ -1,0 +1,45 @@
+{
+  "appName": "TerminalPaymentApp",
+  "version": "1.4.2",
+  "environment": "production",
+  "logging": {
+    "level": "debug",
+    "file": "/var/log/app.log"
+  },
+  "server": {
+    "host": "0.0.0.0",
+    "port": 8080,
+    "tls": {
+      "enabled": true,
+      "certPath": "/etc/ssl/certs/app.crt",
+      "keyPath": "/etc/ssl/private/app.key"
+    }
+  },
+  "database": {
+    "type": "postgresql",
+    "host": "db.internal",
+    "port": 5432,
+    "username": "admin",
+    "password": "superSecurePassword123!",
+    "database": "terminal_db",
+    "connectionPoolSize": 10
+  },
+  "auth": {
+    "jwtSecret": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.fake_signature_1234567890",
+    "apiKey": "sk_live_4eC39HqLyjWDarjtT1zdp7dc",
+    "tokenExpiryMinutes": 60
+  },
+  "paymentGateway": {
+    "provider": "Stripe",
+    "secretKey": "sk_test_51H8IkhF3OjvQw6vGZIE9v8T3M",
+    "publishableKey": "pk_test_TYooMQauvdEDq54NiTphI7jx"
+  },
+  "monitoring": {
+    "prometheusEnabled": true,
+    "grafanaDashboardId": "abcd1234"
+  },
+  "features": {
+    "enableNFC": true,
+    "enableFallback": false
+  }
+}
